@@ -1,24 +1,31 @@
 import { Answer } from '../classes/answer';
 import { AnswerInterface } from '../interfaces/answer_interface';
+import { MultipleChoiceAnswer } from '../classes/mcq_answer';
+import { Attribute } from '@angular/core/src/metadata/di';
 
 export class AnswerFactory {
 
-    create_answer (type: string, value: any): AnswerInterface {
-        let answer: AnswerInterface;
-
+    create_answer (type: string) {
         switch (type) {
+            case 'basic':
+                let basic_answer: Answer;
+
+                basic_answer = new Answer();
+                basic_answer.set_answer('');
+
+                return basic_answer;
+
             case 'mcq':
-                if (value) {
-                    answer = new Answer(value);
-                } else {
-                    answer = null;
-                }
-                break;
+                let mcq_answer: MultipleChoiceAnswer;
+
+                mcq_answer = new MultipleChoiceAnswer();
+                mcq_answer.set_answer('');
+                mcq_answer.set_validity(false);
+
+                return mcq_answer;
 
             default:
-                answer = null;
+                return null;
         }
-
-        return answer;
     }
 }
