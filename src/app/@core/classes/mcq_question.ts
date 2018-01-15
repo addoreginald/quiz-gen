@@ -6,7 +6,7 @@
 import { Question } from './question';
 import { AnswerInterface } from '../interfaces/answer_interface';
 
-export class MultipleCoiceQuestion extends Question {
+export class MultipleChoiceQuestion extends Question {
     choices: Array<AnswerInterface>;
 
     constructor () {

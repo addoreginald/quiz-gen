@@ -1,13 +1,13 @@
 import { QuestionFactory } from '../factories/question_factory';
 import { AnswerFactory } from '../factories/answer_factory';
-import { MultipleCoiceQuestion } from '../classes/mcq_question';
+import { MultipleChoiceQuestion } from '../classes/mcq_question';
 
 export class QuestionBuilder {
 
     build_mcq () {
         // Produce question from factory
         const question = new QuestionFactory();
-        const mcq_question: MultipleCoiceQuestion = question.create_question('mcq');
+        const mcq_question: MultipleChoiceQuestion = question.create_question('mcq');
 
         // Produce answer from factory
         const answer = new AnswerFactory();

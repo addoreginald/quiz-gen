@@ -1,5 +1,5 @@
 import { Question } from '../classes/question';
-import { MultipleCoiceQuestion } from '../classes/mcq_question';
+import { MultipleChoiceQuestion } from '../classes/mcq_question';
 
 
 export class QuestionFactory {
@@ -12,7 +12,7 @@ export class QuestionFactory {
                 break;
 
             case 'mcq':
-                question = new MultipleCoiceQuestion();
+                question = new MultipleChoiceQuestion();
                 break;
         }
 
