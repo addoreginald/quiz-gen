@@ -14,7 +14,7 @@ export class QuestionBuilder {
 
         for (let index = 0; index < 4; index++) {
             const mcq_answers = answer.create_answer('mcq');
-            mcq_question.choices.push(mcq_answers);
+            mcq_question.add_choice();
         }
 
         return mcq_question;
