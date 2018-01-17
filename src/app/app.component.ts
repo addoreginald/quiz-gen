@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { QuestionBuilder } from './@core/builders/question_builder';
 
 @Component({
   selector: 'app-root',

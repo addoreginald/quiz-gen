@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MultipleChoiceQuestion } from '../../@core/classes/mcq_question';
-import { QuestionBuilder } from '../../@core/builders/question_builder';
+import { Quiz } from '../../@core/classes/quiz';
+import { Store } from '@ngrx/store';
+import { addMcq } from '../../@core/store/actions/questions_actions';
 
 @Component({
   selector: 'app-mcq-generator',
@@ -9,18 +10,17 @@ import { QuestionBuilder } from '../../@core/builders/question_builder';
 })
 export class McqGeneratorComponent implements OnInit {
 
-  @Output() mcqCreated = new EventEmitter<MultipleChoiceQuestion>();
-
   constructor(
+    private store: Store<Quiz>
   ) { }
 
   ngOnInit() {
   }
 
   create_mcq () {
-    const questionBuilder = new QuestionBuilder();
-    const mcq = questionBuilder.build_mcq();
-    this.mcqCreated.emit(mcq);
+    // Dispatch action
+    const action = addMcq();
+    this.store.dispatch(action);
   }
 
 }

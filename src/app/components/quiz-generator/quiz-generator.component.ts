@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MultipleChoiceQuestion } from '../../@core/classes/mcq_question';
 import { TimedMultipleChoiceQuestion } from '../../@core/classes/timed_mcq_question';
+import { Quiz } from '../../@core/classes/quiz';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-quiz-generator',
@@ -13,19 +15,16 @@ export class QuizGeneratorComponent implements OnInit {
   questions: Array<any> = [];
 
   constructor(
+    private store: Store<Quiz>
   ) { }
 
   ngOnInit() {
+    this.store.subscribe(
+      (state) => {
+        console.log(state);
+        // update questions
+        this.questions = state.questions;
+      }
+    );
   }
-
-  store_mcq (mcq: MultipleChoiceQuestion) {
-    this.questions.push(mcq);
-    console.log(this.questions);
-  }
-
-  store_timed_mcq (timed_mcq: TimedMultipleChoiceQuestion) {
-    this.questions.push(timed_mcq);
-    console.log(this.questions);
-  }
-
 }

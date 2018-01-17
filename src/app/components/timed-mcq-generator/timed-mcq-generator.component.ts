@@ -1,6 +1,10 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { TimedMultipleChoiceQuestion } from '../../@core/classes/timed_mcq_question';
 import { QuestionBuilder } from '../../@core/builders/question_builder';
+import { Quiz } from '../../@core/classes/quiz';
+import { Store } from '@ngrx/store';
+import { createAction } from '../../@core/factories/action_factory';
+import { addTimedMcq } from '../../@core/store/actions/questions_actions';
 
 @Component({
   selector: 'app-timed-mcq-generator',
@@ -9,17 +13,16 @@ import { QuestionBuilder } from '../../@core/builders/question_builder';
 })
 export class TimedMcqGeneratorComponent implements OnInit {
 
-  @Output() timedMcqCreated = new EventEmitter<TimedMultipleChoiceQuestion>();
-
-  constructor() { }
+  constructor(
+    private store: Store<Quiz>
+  ) { }
 
   ngOnInit() {
   }
 
   create_timed_mcq () {
-    const questionBuilder = new QuestionBuilder();
-    const timed_mcq = questionBuilder.build_timed_mcq();
-    this.timedMcqCreated.emit(timed_mcq);
+    const action = addTimedMcq();
+    this.store.dispatch(action);
   }
 
 }
