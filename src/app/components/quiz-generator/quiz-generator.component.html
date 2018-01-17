@@ -1,0 +1,4 @@
+<app-mcq-generator (mcqCreated)="store_mcq($event)"></app-mcq-generator>
+<app-timed-mcq-generator (timedMcqCreated)="store_timed_mcq($event)"></app-timed-mcq-generator>
+<hr>
+<app-question-editor *ngFor="let question of questions" [question]="question"></app-question-editor>

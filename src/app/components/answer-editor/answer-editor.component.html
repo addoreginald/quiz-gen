@@ -1,0 +1,12 @@
+<span *ngIf="choice">
+  <div>
+    <input type="text">
+  </div>
+
+  <div>
+    <button type="button">
+      <span *ngIf="choice.valid === true">Correct</span>
+      <span *ngIf="choice.valid === false">Wrong</span>
+    </button>
+  </div>
+</span>

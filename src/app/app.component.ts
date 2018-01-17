@@ -8,10 +8,4 @@ import { QuestionBuilder } from './@core/builders/question_builder';
 })
 export class AppComponent {
   title = 'app';
-
-  new_question () {
-    const builder = new QuestionBuilder();
-
-    console.log(builder.build_mcq());
-  }
 }

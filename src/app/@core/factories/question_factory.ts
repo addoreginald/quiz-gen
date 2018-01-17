@@ -1,5 +1,6 @@
 import { Question } from '../classes/question';
 import { MultipleChoiceQuestion } from '../classes/mcq_question';
+import { TimedMultipleChoiceQuestion } from '../classes/timed_mcq_question';
 
 
 export class QuestionFactory {
@@ -13,6 +14,10 @@ export class QuestionFactory {
 
             case 'mcq':
                 question = new MultipleChoiceQuestion();
+                break;
+
+            case 'timed-mcq':
+                question = new TimedMultipleChoiceQuestion();
                 break;
         }
 

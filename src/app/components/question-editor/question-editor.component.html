@@ -1,0 +1,31 @@
+<div>
+  <div>
+    <span>Question: </span>
+    <input type="text">
+  </div>
+  
+  <div>
+    <span>Correct Answer: </span>
+    <input type="text">
+  </div>
+  
+  <div *ngIf="question.time === 0">
+    <span>Time: </span>
+    <select name="" id="">
+      <option value="">5 seconds</option>
+      <option value="">10 seconds</option>
+      <option value="">15 seconds</option>
+      <option value="">20 seconds</option>
+      <option value="">25 seconds</option>
+      <option value="">30 seconds</option>
+    </select>
+  </div>
+  
+  <div>
+    <span>Answers</span>
+  </div>
+  
+  <!-- Answer editor goes here -->
+  <app-answer-editor *ngFor="let choice of question.choices" [choice]="choice"></app-answer-editor>
+</div>
+<hr>
