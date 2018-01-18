@@ -21,7 +21,6 @@ export class QuizGeneratorComponent implements OnInit {
   ngOnInit() {
     this.store.subscribe(
       (state) => {
-        console.log(state);
         // update questions
         this.questions = state.questions;
       }

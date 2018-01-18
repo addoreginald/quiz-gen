@@ -1,23 +1,19 @@
 <div>
   <div>
     <span>Question: </span>
-    <input type="text">
+    <input type="text" #statement (input)="editQuestion(questionId, statement.value)">
   </div>
   
-  <div>
-    <span>Correct Answer: </span>
-    <input type="text">
-  </div>
-  
-  <div *ngIf="question.time === 0">
+  <div *ngIf="question.time === 0 || question.time > 0">
     <span>Time: </span>
-    <select name="" id="">
-      <option value="">5 seconds</option>
-      <option value="">10 seconds</option>
-      <option value="">15 seconds</option>
-      <option value="">20 seconds</option>
-      <option value="">25 seconds</option>
-      <option value="">30 seconds</option>
+    <select #time name="" id="" (change)="set_time(questionId, time.value)">
+      <option value="">Select time</option>
+      <option value="500">5 seconds</option>
+      <option value="1000">10 seconds</option>
+      <option value="1500">15 seconds</option>
+      <option value="2000">20 seconds</option>
+      <option value="2500">25 seconds</option>
+      <option value="3000">30 seconds</option>
     </select>
   </div>
   
@@ -26,6 +22,13 @@
   </div>
   
   <!-- Answer editor goes here -->
-  <app-answer-editor *ngFor="let choice of question.choices" [choice]="choice"></app-answer-editor>
+  <app-answer-editor *ngFor="let choice of question.choices; let i = index" [choice]="choice" [choiceId]="i" [questionId]="questionId"></app-answer-editor>
+
+  <br>
+  
+  <div>
+    <app-add-answer [questionId]="questionId"></app-add-answer>
+    <app-delete-answer [questionId]="questionId"></app-delete-answer>
+  </div>
 </div>
 <hr>

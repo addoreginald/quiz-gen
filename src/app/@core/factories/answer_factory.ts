@@ -5,7 +5,7 @@ import { Attribute } from '@angular/core/src/metadata/di';
 
 export class AnswerFactory {
 
-    create_answer (type: string) {
+    create_answer (type: string): any {
         switch (type) {
             case 'basic':
                 let basic_answer: Answer;

@@ -2,4 +2,4 @@
 <app-timed-mcq-generator></app-timed-mcq-generator>
 <app-delete-recent-added-question></app-delete-recent-added-question>
 <hr>
-<app-question-editor *ngFor="let question of questions" [question]="question"></app-question-editor>
+<app-question-editor *ngFor="let question of questions; let i = index" [question]="question" [questionId]="i"></app-question-editor>

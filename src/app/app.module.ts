@@ -10,6 +10,8 @@ import { QuestionEditorComponent } from './components/question-editor/question-e
 import { AnswerEditorComponent } from './components/answer-editor/answer-editor.component';
 import { appStore } from './@core/store/store';
 import { DeleteRecentAddedQuestionComponent } from './components/delete-recent-added-question/delete-recent-added-question.component';
+import { AddAnswerComponent } from './components/add-answer/add-answer.component';
+import { DeleteAnswerComponent } from './components/delete-answer/delete-answer.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { DeleteRecentAddedQuestionComponent } from './components/delete-recent-a
     TimedMcqGeneratorComponent,
     QuestionEditorComponent,
     AnswerEditorComponent,
-    DeleteRecentAddedQuestionComponent
+    DeleteRecentAddedQuestionComponent,
+    AddAnswerComponent,
+    DeleteAnswerComponent
   ],
   imports: [
     BrowserModule,

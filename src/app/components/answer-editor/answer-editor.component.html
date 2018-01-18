@@ -1,10 +1,10 @@
 <span *ngIf="choice">
   <div>
-    <input type="text">
+    <input #answer type="text" (input)="set_answer(questionId, choiceId, answer.value)">
   </div>
 
   <div>
-    <button type="button">
+    <button type="button" (click)="set_correct_answer(questionId, choiceId)">
       <span *ngIf="choice.valid === true">Correct</span>
       <span *ngIf="choice.valid === false">Wrong</span>
     </button>
